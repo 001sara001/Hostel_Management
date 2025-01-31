@@ -82,7 +82,6 @@
                  </div>
                     <div class="col-lg-3 mb-3">
                            <label class="form-label" style="font-weigth:500;" >Adult</label>
-
                            <select class="form-select shadow-none">
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -143,14 +142,10 @@
                   </span> 
               </div>
               <div class="guests mb-4">
-                <h6 class="mb-1">Guests</h6>
+                <h6 class="mb-1">Hostelers</h6>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">
-                    5 Adult
-                  </span> 
-                  <span class="badge rounded-pill bg-light text-dark text-wrap">
-                    4 Children
-                  </span> 
-                 
+                    2 persons
+                  </span>     
               </div>
               <div class="rating mb-4">
                 <h6 class="mb-1">Rating</h6>
@@ -209,14 +204,10 @@
                   </span> 
               </div>
               <div class="guests mb-4">
-                <h6 class="mb-1">Guests</h6>
+                <h6 class="mb-1">Hostelers</h6>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">
-                    5 Adult
-                  </span> 
-                  <span class="badge rounded-pill bg-light text-dark text-wrap">
-                    4 Children
-                  </span> 
-                 
+                    1 person
+                  </span>     
               </div>
 
               <div class="rating mb-4">
@@ -275,14 +266,10 @@
                   </span> 
               </div>
               <div class="guests mb-4">
-                <h6 class="mb-1">Guests</h6>
+                <h6 class="mb-1">Hostelers</h6>
                 <span class="badge rounded-pill bg-light text-dark text-wrap">
-                    5 Adult
-                  </span> 
-                  <span class="badge rounded-pill bg-light text-dark text-wrap">
-                    4 Children
-                  </span> 
-                 
+                    3 persons
+                  </span>     
               </div>
 
               <div class="rating mb-4">
