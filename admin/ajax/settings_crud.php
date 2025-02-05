@@ -2,14 +2,14 @@
    
    require('../inc/db_config.php');
    require('../inc/essentials.php');
-   adminLogin();
+   adminLogin(); //if not login,redirect to login page
 
 
-   if(isset($_POST['get_general'])){
+   if(isset($_POST['get_general'])){ //checks if get_general has post data,if yes then retrieve the data
     $q="select * from `settings` where `sr_no`=?";
     $values=[1];
-    $res=select($q,$values,"i");
-    $data=mysqli_fetch_assoc($res);
+    $res=select($q,$values,"i");  //matcher the value with select
+    $data=mysqli_fetch_assoc($res); //retrieves the result as an associative array.
     $json_data=json_encode($data);
     echo $json_data;
    }

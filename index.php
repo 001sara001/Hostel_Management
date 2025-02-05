@@ -34,33 +34,32 @@
 <div class="container-fluid px-lg-4 mt-4">
   <div class="swiper swiper-container">
     <div class="swiper-wrapper">
+      <!-- Carousel Image 1 -->
       <div class="swiper-slide">
-        <img src="images/carousel/1.png" class="w-100 d-block"/>
+        <img src="images/carousel/01.png" class="w-100 d-block"/>
       </div>
 
+      <!-- Carousel Image 2 -->
       <div class="swiper-slide">
-        <img src="images/carousel/2.png" class="w-100 d-block"/>
+        <img src="images/carousel/02.png" class="w-100 d-block"/>
       </div>
 
+      <!-- Carousel Image 3 -->
       <div class="swiper-slide">
-        <img src="images/carousel/3.png" class="w-100 d-block"/>
-      </div>
-
-      <div class="swiper-slide">
-        <img src="images/carousel/4.png" class="w-100 d-block"/>
-      </div>
-
-      <div class="swiper-slide">
-        <img src="images/carousel/5.png" class="w-100 d-block"/>
-      </div>
-
-      <div class="swiper-slide">
-        <img src="images/carousel/6.png" class="w-100 d-block"/>
+        <img src="images/carousel/03.png" class="w-100 d-block"/>
       </div>
 
     </div>
+
+    <!-- Pagination -->
+    <!-- <div class="swiper-pagination"></div>
+
+    <!-- Navigation arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
-</div>
+</div> -->
+
 
 <!-- check availability form -->
 
@@ -106,7 +105,7 @@
     <div class="row">
       <div class="col-lg-4 col-md-6 my-3">
         <div class="card border-0 shadow " style="max-width: 350 px; margin:auto;">
-          <img src="images/rooms/1.jpg" class="card-img-top">
+          <img src="images/rooms/01.jpg" class="card-img-top">
           <div class="card-body">
               <h5>Simple Room Name</h5>
               <h6 class="mb-4">BDT 2000 per month</h6>
@@ -167,7 +166,7 @@
 
       <div class="col-lg-4 col-md-6 my-3">
         <div class="card border-0 shadow " style="max-width: 350 px; margin:auto;">
-          <img src="images/rooms/1.jpg" class="card-img-top">
+          <img src="images/rooms/01.jpg" class="card-img-top">
           <div class="card-body">
               <h5>Simple Room Name</h5>
               <h6 class="mb-4">BDT 2000 per month</h6>
@@ -230,7 +229,7 @@
 
       <div class="col-lg-4 col-md-6 my-3">
         <div class="card border-0 shadow " style="max-width: 350 px; margin:auto;">
-          <img src="images/rooms/1.jpg" class="card-img-top">
+          <img src="images/rooms/01.jpg" class="card-img-top">
           <div class="card-body">
               <h5>Simple Room Name</h5>
               <h6 class="mb-4">BDT 2000 per month</h6>

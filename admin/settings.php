@@ -147,10 +147,10 @@
             modal.hide(); //for hiding the modal after submitting
 
             if(this.responseText==1 ){
-               alert('success','Changes Saved');
+               //alert('success','Changes Saved');
                get_general();
             }else{
-               alert('error','No changes are made');
+               //alert('error','No changes are made');
             }
          }
         
@@ -167,10 +167,10 @@
          xhr.onload=function(){
 
             if(this.responseText==1 && general_data.shutdown==0){
-               alert('success','Site has been shutdown');
+              // alert('success','Site has been shutdown');
                
             }else{
-               alert('success ','Shutdown mode off');
+              // alert('success ','Shutdown mode off');
             }
             get_general();
          }
