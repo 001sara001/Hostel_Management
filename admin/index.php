@@ -3,7 +3,7 @@
   require('inc/essentials.php');
 
   session_start();
-  session_regenerate_id(true);  //for generating new id
+  
   //if admin is not set and not true
   if((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin']==true)){
     redirect('dashboard.php');

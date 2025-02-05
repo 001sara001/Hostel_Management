@@ -42,4 +42,24 @@
       die("Query cannot be prepared-Select"); //to understand that error has come from select function
     }
   }
+
+  function update($sql,$values,$datatypes){
+    $con=$GLOBALS['con']; //for accessing the data outside the function
+    if($stmt=mysqli_prepare($con,$sql)){
+        //...->splat operator,for dynamically passing the data
+        mysqli_stmt_bind_param($stmt,$datatypes,...$values);
+        if(mysqli_stmt_execute($stmt)){
+          //$res=mysqli_stmt_affected_rows($stmt);  //for affected rows
+          $res=mysqli_stmt_affected_rows($stmt);   
+          mysqli_stmt_close($stmt); //for closing 
+          return $res;
+        }
+        else{
+          mysqli_stmt_close($stmt); //for closing 
+          die("Query cannot be executed-Update"); 
+        }     
+    }else{
+      die("Query cannot be prepared-Update"); //to understand that error has come from select function
+    }
+  }
 ?>
