@@ -5,16 +5,15 @@ function adminLogin(){
   session_start();
   //if admin is not set and not true
   if(!(isset($_SESSION['adminLogin']) && $_SESSION['adminLogin']==true)){
-    echo"
-    <script>window.location.href='index.php'</script>
-    ";
+    echo"<script>window.location.href='index.php'</script>";
   }
-  session_regenerate_id(true);  //for generating new id
+exit;
+
+
 }
 function redirect($url){
-    echo"
-    <script>window.location.href='$url'</script>
-    ";
+    echo"<script>window.location.href='$url'</script>";
+    exit;
 } 
 
 function alert($type,$msg){
