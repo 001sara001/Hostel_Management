@@ -26,7 +26,7 @@
 
             <!-- general settings section -->
             <div class="card border-0 shadow-sm mb-4">
-               <div class="card-body">
+            <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <h5 class="card-title m-0">General Setttings</h5>
                      <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#general-s">
@@ -41,10 +41,10 @@
                </div>
             </div>
 
-                   <!-- general settings modal -->
+            <!-- general settings modal -->
 
-               <div class="modal fade" id="general-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-               <div class="modal-dialog">
+            <div class="modal fade" id="general-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
                   <form id="general_s_form">
                      <div class="modal-content">
                         <div class="modal-header">
@@ -69,7 +69,7 @@
                </div>
                </div>
 
-               <!-- shutdown settings -->
+            <!-- shutdown settings -->
 
             <div class="card border-0 shadow-sm mb-4">
                <div class="card-body">
@@ -87,7 +87,7 @@
                </div>
             </div>
 
-             <!-- Contact details section -->
+            <!-- Contact details section -->
              <div class="card border-0 shadow-sm mb-4">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
@@ -210,8 +210,51 @@
                </div>
                </div>
 
-          </div>
-       </div>
+            </div>
+
+            <!-- Management Team section -->
+            <div class="card border-0 shadow-sm mb-4">
+               <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between mb-3">
+                     <h5 class="card-title m-0">Management Team</h5>
+                     <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#team-s">
+                     <i class="bi bi-plus-square"></i> Add
+                     </button>
+                  </div>
+                  <div class="row" id="team-data">
+                  </div>
+               </div>
+            </div>
+
+             <!-- Management Team modal -->
+
+            <div class="modal fade" id="team-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                  <form id="team_s_form">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title">Add Team Member</h5>
+                        </div>
+                        <div class="modal-body">
+                           <div class="mb-3">
+                              <label class="form-label fw-bold">Name</label>
+                              <input type="text" name="member_name" id="member_name_inp" class="form-control shadow-none" required>
+                           </div>
+                           <div class="mb-3">
+                              <label class="form-label fw-bold">Picture</label>
+                              <input type="file" name="member_picture" id="member_picture_inp" accept="[.jpg, .png, .webp, .jpeg]" class="form-control shadow-none" required>
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" onclick="" class="btn text-secondary shadow-none" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn custom-bg text-white shadow-none">Submit</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+               </div>
+      
+         </div>
     </div>
     <?php
        require('inc/scripts.php');
@@ -224,6 +267,11 @@
       let site_about_inp=document.getElementById('site_about_inp');
 
       let contacts_s_form=document.getElementById('contacts_s_form');
+      let team_s_form=document.getElementById('team_s_form');
+      let member_name_inp=document.getElementById('member_name_inp');
+      let member_picture_inp=document.getElementById('member_picture_inp');
+
+
       function get_general(){
          let site_title=document.getElementById('site_title');
          let site_about=document.getElementById('site_about');
@@ -374,6 +422,39 @@
             }
          }
          xhr.send(data_str);
+
+      }
+
+      team_s_form.addEventListener
+      ('submit',function(e){
+         e.preventDefault();
+         add_team();
+      });
+
+      function add_member(){
+         let data = new FormData();
+         data.append('name',member_name_inp.value);
+         data.append('picture',member_picture_inp.files[0]);
+         data.append('add_member','');
+
+         let xhr=new XMLHttpRequest();
+         xhr.open("POST","ajax/settings_crud.php",true);
+
+         xhr.onload=function(){
+
+           // var myModal = document.getElementById('general-s');//just id fetching
+           // var modal = bootstrap.Modal.getInstance(myModal);
+           // modal.hide(); //for hiding the modal after submitting
+
+           // if(this.responseText==1 ){
+           //    alert('success','Changes Saved');
+           //    get_general();
+           // }else{
+            //   alert('error','No changes are made');
+            }
+         
+
+         xhr.send(data);
 
       }
 
