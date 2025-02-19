@@ -26,7 +26,7 @@
 
             <!-- general settings section -->
             <div class="card border-0 shadow-sm mb-4">
-            <div class="card-body">
+               <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <h5 class="card-title m-0">General Setttings</h5>
                      <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#general-s">
@@ -44,11 +44,11 @@
             <!-- general settings modal -->
 
             <div class="modal fade" id="general-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
+               <div class="modal-dialog">
                   <form id="general_s_form">
                      <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title">General Settings</h5>
+                           <h5 class="modal-title">General Settings</h5>
                         </div>
                         <div class="modal-body">
                            <div class="mb-3">
@@ -61,13 +61,13 @@
                            </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" onclick="site_title.value=general_data.site_title, site_about.value=general_data.site_about" class="btn text-secondary shadow-none" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">Submit</button>
+                           <button type="button" onclick="site_title.value=general_data.site_title, site_about.value=general_data.site_about" class="btn text-secondary shadow-none" data-bs-dismiss="modal">Cancel</button>
+                           <button type="submit" class="btn custom-bg text-white shadow-none">Submit</button>
                         </div>
                      </div>
                   </form>
                </div>
-               </div>
+            </div>
 
             <!-- shutdown settings -->
 
@@ -141,7 +141,7 @@
                      </div>
                   </div>
                </div>
-            </div>
+             </div>
 
              <!-- Contacts Details  modal -->
             <div class="modal fade" id="contacts-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -152,7 +152,6 @@
                         <h5 class="modal-title">Contacts Settings</h5>
                         </div>
                         <div class="modal-body">
-
                            <div class="container-fluid p-0">
                               <div class="row">
                                  <div class="col-md-6">
@@ -199,18 +198,17 @@
                                  </div>
                               </div>
                            </div>
-
                         </div>
                         <div class="modal-footer">
-                        <button type="button" onclick="contacts_inp(contacts_data)" class="btn text-secondary shadow-none" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">Submit</button>
+                           <button type="button" onclick="contacts_inp(contacts_data)" class="btn text-secondary shadow-none" data-bs-dismiss="modal">Cancel</button>
+                           <button type="submit" class="btn custom-bg text-white shadow-none">Submit</button>
                         </div>
                      </div>
                   </form>
                </div>
-               </div>
-
             </div>
+
+               
 
             <!-- Management Team section -->
             <div class="card border-0 shadow-sm mb-4">
@@ -252,8 +250,11 @@
                      </div>
                   </form>
                </div>
+               <?php 
+               echo $_SERVER['DOCUMENT_ROOT']
+               ?>
                </div>
-      
+               </div>
          </div>
     </div>
     <?php
