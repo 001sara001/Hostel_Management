@@ -50,27 +50,25 @@
                         <div class="modal-body">
                            <div class="mb-3">
                               <label class="form-label fw-bold">Picture</label>
-                              <input type="file" name="member_picture" id="member_picture_inp" accept="[.jpg, .png, .webp, .jpeg]" class="form-control shadow-none" required>
+                              <input type="file" name="carousel_picture" id="carousel_picture_inp" 
+                               accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none" required>
+
                            </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" onclick="" class="btn text-secondary shadow-none" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" onclick="carousel_picture.value=''" class="btn text-secondary shadow-none" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn custom-bg text-white shadow-none">Submit</button>
                         </div>
                      </div>
                   </form>
                </div>
                </div>
-               <?php 
-               echo $_SERVER['DOCUMENT_ROOT']
-               ?>
+
                
                </div>
          </div>
     </div>
-    <?php
-       require('inc/scripts.php');
-    ?>
+    <?php require('inc/scripts.php'); ?>
     <script src="scripts/carousel.js"></script>
 </body>
 </html>

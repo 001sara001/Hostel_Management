@@ -25,6 +25,12 @@
     return $data;
   }
 
+  function selectAll($table){
+    $con= $GLOBALS['con'];
+    $res = mysqli_query($con, "SELECT * FROM $table");
+    return $res;
+  }
+
   function select($sql,$values,$datatypes){
     $con=$GLOBALS['con']; //for accessing the data outside the function
     if($stmt=mysqli_prepare($con,$sql)){
@@ -62,6 +68,46 @@
         }     
     }else{
       die("Query cannot be prepared-Update"); //to understand that error has come from select function
+    }
+  }
+
+  function insert ($sql,$values,$datatypes){
+    $con=$GLOBALS['con']; //for accessing the data outside the function
+    if($stmt=mysqli_prepare($con,$sql)){
+        //...->splat operator,for dynamically passing the data
+        mysqli_stmt_bind_param($stmt,$datatypes,...$values);
+        if(mysqli_stmt_execute($stmt)){
+          //$res=mysqli_stmt_affected_rows($stmt);  //for affected rows
+          $res=mysqli_stmt_affected_rows($stmt);   
+          mysqli_stmt_close($stmt); //for closing 
+          return $res;
+        }
+        else{
+          mysqli_stmt_close($stmt); //for closing 
+          die("Query cannot be executed-Insert"); 
+        }     
+    }else{
+      die("Query cannot be prepared-Insert"); //to understand that error has come from select function
+    }
+  }
+
+  function delete($sql,$values,$datatypes){
+    $con=$GLOBALS['con']; //for accessing the data outside the function
+    if($stmt=mysqli_prepare($con,$sql)){
+        //...->splat operator,for dynamically passing the data
+        mysqli_stmt_bind_param($stmt,$datatypes,...$values);
+        if(mysqli_stmt_execute($stmt)){
+          //$res=mysqli_stmt_affected_rows($stmt);  //for affected rows
+          $res=mysqli_stmt_affected_rows($stmt);   
+          mysqli_stmt_close($stmt); //for closing 
+          return $res;
+        }
+        else{
+          mysqli_stmt_close($stmt); //for closing 
+          die("Query cannot be executed-Delete"); 
+        }     
+    }else{
+      die("Query cannot be prepared-Delete"); //to understand that error has come from select function
     }
   }
 ?>
