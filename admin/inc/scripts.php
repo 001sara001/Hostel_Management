@@ -10,7 +10,16 @@
         </div>
         `;
         document.body.append(element);
+        setTimeout(remAlert, 2000);
+    }
 
+    function remAlert()
+    {
+        var alert = document.getElementsByClassName('alert')[0];
+        if (alert)
+        {
+            alert.remove();
+        }
     }
 
     function setActive(){
