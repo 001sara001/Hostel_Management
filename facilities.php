@@ -31,66 +31,23 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-6 md-5 px-4">
-        <div class="bg-white roundrd shadow p-4 border-top border-4 border-dark pop">
-          <div class="d-flex align-items-center mb-2"></div>
-          <img src="images/features//wifi-logo.svg" width="40px">
-          <h5 class="m-0 ">Wifi</h5>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-            Praesentium quo, nihil temporibus earum non doloribus assumenda?
-          </p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 md-5 px-4">
-        <div class="bg-white roundrd shadow p-4 border-top border-4 border-dark pop">
-          <div class="d-flex align-items-center mb-2"></div>
-          <img src="images/features//wifi-logo.svg" width="40px">
-          <h5 class="m-0 ">Wifi</h5>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-            Praesentium quo, nihil temporibus earum non doloribus assumenda?
-          </p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 md-5 px-4">
-        <div class="bg-white roundrd shadow p-4 border-top border-4 border-dark pop">
-          <div class="d-flex align-items-center mb-2"></div>
-          <img src="images/features//wifi-logo.svg" width="40px">
-          <h5 class="m-0 ">Wifi</h5>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-            Praesentium quo, nihil temporibus earum non doloribus assumenda?
-          </p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 md-5 px-4">
-        <div class="bg-white roundrd shadow p-4 border-top border-4 border-dark pop">
-          <div class="d-flex align-items-center mb-2"></div>
-          <img src="images/features//wifi-logo.svg" width="40px">
-          <h5 class="m-0 ">Wifi</h5>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-            Praesentium quo, nihil temporibus earum non doloribus assumenda?
-          </p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 md-5 px-4">
-        <div class="bg-white roundrd shadow p-4 border-top border-4 border-dark pop">
-          <div class="d-flex align-items-center mb-2"></div>
-          <img src="images/features//wifi-logo.svg" width="40px">
-          <h5 class="m-0 ">Wifi</h5>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-            Praesentium quo, nihil temporibus earum non doloribus assumenda?
-          </p>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 md-5 px-4">
-        <div class="bg-white roundrd shadow p-4 border-top border-4 border-dark pop">
-          <div class="d-flex align-items-center mb-2"></div>
-          <img src="images/features//wifi-logo.svg" width="40px">
-          <h5 class="m-0 ">Wifi</h5>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-            Praesentium quo, nihil temporibus earum non doloribus assumenda?
-          </p>
-        </div>
-      </div>
+      <?php 
+        $res = selectAll('facilities');
+        $path = FACILITIES_IMG_PATH;
+
+        while($row = mysqli_fetch_assoc($res)){ 
+            echo<<<data
+              <div class="col-lg-4 col-md-6 md-5 px-4">
+                <div class="bg-white roundrd shadow p-4 border-top border-4 border-dark pop">
+                  <div class="d-flex align-items-center mb-2"></div>
+                  <img src="$path$row[icon]" width="40px">
+                  <h5 class="m-0 ">$row[name]</h5>
+                  <p>$row[description]</p>
+                </div>
+              </div>
+            data;
+        }
+      ?>
     </div>
   </div>
 
