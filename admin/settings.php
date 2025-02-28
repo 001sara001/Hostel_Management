@@ -253,10 +253,12 @@ require('inc/essentials.php');
                      </div>
                   </form>
                </div>
+
             </div>
             <?php
             echo $_SERVER['DOCUMENT_ROOT']
             ?>
+
 
          </div>
       </div>
