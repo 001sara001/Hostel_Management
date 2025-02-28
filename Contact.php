@@ -66,30 +66,53 @@
       </div>
       <div class="col-lg-6 col-md-6 md-5 px-4">
         <div class="bg-white roundrd shadow p-4">
-          <form action="">
+          <form method="POST">
             <h5>Send a Message</h5>
             <div class="mb-4">
             <label class="form-label font-weight">Name</label>
-            <input type="text" class="form-control shadow-none" >
+            <input name="name" required type="text"  class="form-control shadow-none" >
             </div>
             <div class="mb-4">
             <label class="form-label font-weight">Email</label>
-            <input type="email" class="form-control shadow-none" >
+            <input name="email" required type="email" class="form-control shadow-none" >
             </div>
             <div class="mb-4">
             <label class="form-label font-weight">Subject</label>
-            <input type="text" class="form-control shadow-none" >
+            <input name="subject" required type="text" class="form-control shadow-none" >
             </div>
             <div class="mb-4">
-            <label class="form-label font-weight :500">Meassage</label>
-            <textarea class="form-control shadow-none" rows="5"></textarea>
+            <label class="form-label font-weight :500">Message</label>
+            <textarea name="message" required class="form-control shadow-none" rows="5"></textarea>
             </div>
-            <button type="submit" class="btn text-white custom-bg mt-3">Send</button>
+            <button name="send"  type="submit" class="btn text-white custom-bg mt-3">Send</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+
+
+  <?php 
+    if(isset($_POST['send']))
+    {
+      $frm_data =filteration($_POST);
+
+      $q= "INSERT INTO `user_queries`(`name`, `email`, `subject`, `message`) VALUES (?,?,?,?)";
+      $values= [$frm_data["name"],$frm_data["email"],$frm_data["subject"],$frm_data["message"]];
+
+      $res = insert($q,$values,'ssss');
+
+      if($res ==1)
+      {
+        alert('success', 'Mail sent!');
+      }
+      else
+      {
+        alert('error','Server down! Try again later.');
+      }
+    }
+  ?>
+  
 
   <?php require('inc/footer.php')?>
 

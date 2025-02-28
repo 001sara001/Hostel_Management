@@ -4,7 +4,9 @@
 
 define('SITE_URL', 'http://127.0.0.1/Hostel_Management/');
 define('ABOUT_IMG_PATH', SITE_URL.'images/about/');
-
+define('CAROUSEL_IMG_PATH', SITE_URL.'images/carousel/');
+define('FACILITIES_IMG_PATH', SITE_URL.'images/facilities/');
+define('ROOMS_IMG_PATH',SITE_URL.'images/rooms/');
 
 //backend upload process needs this data
 
@@ -50,7 +52,7 @@ function uploadImage($image, $folder) {
       return 'inv_img'; // Invalid image MIME or format
   }
   // Check if the file size exceeds 2MB
-  else if ($image['size'] / (1024 * 1024) > 2) {
+  else if ($image['size'] / (1024 * 1024) > 3) {
       return 'inv_size'; // Invalid image size
   }
   else {
@@ -77,14 +79,19 @@ function deleteImage($image, $folder){
   }
 }
 
+
 function uploadUserImage ($image){
   $valid_mime = ['image/jpeg', 'image/png', 'image/webp'];
+function uploadSVGImage($image, $folder) {
+  $valid_mime = ['image/svg+xml'];
+
   $img_mime = $image['type'];
 
   // Check if the MIME type is not valid
   if (!in_array($img_mime, $valid_mime)) {
       return 'inv_img'; // Invalid image MIME or format
   }
+
   else {
       // Generate a unique name for the image file
       $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
@@ -111,6 +118,22 @@ function uploadUserImage ($image){
       // Move the uploaded file to the specified folder
       if (move_uploaded_file($image['tmp_name'], $img_path)) {
           return $rname; // Return the new file name on success
+
+//main e eshob chilo:
+  // Check if the file size exceeds 2MB
+  //else if ($image['size'] / (1024 * 1024) >1) {
+   //   return 'inv_size'; // Invalid image size greater than 1
+  //}
+  //else {
+  //    // Generate a unique name for the image file
+  //    $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+   //   $rmane = 'IMG_' . random_int(11111, 99999) . ".$ext";
+   //   $img_path = UPLOAD_IMAGE_PATH . $folder . $rmane;
+      
+      // Move the uploaded file to the specified folder
+    //  if (move_uploaded_file($image['tmp_name'], $img_path)) {
+    //      return $rmane; // Return the new file name on success
+
       } else {
           return 'upd_failed'; // Upload failed
       }
