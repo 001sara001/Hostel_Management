@@ -76,7 +76,7 @@
     if($stmt=mysqli_prepare($con,$sql)){
         //...->splat operator,for dynamically passing the data
         mysqli_stmt_bind_param($stmt,$datatypes,...$values);
-        if(mysqli_stmt_execute($stmt)){
+        if(mysqli_stmt_execute($stmt)){    //this is line 79 is there any problem here
           //$res=mysqli_stmt_affected_rows($stmt);  //for affected rows
           $res=mysqli_stmt_affected_rows($stmt);   
           mysqli_stmt_close($stmt); //for closing 

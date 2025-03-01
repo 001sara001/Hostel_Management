@@ -80,8 +80,33 @@ function deleteImage($image, $folder){
 }
 
 
-function uploadUserImage ($image){
+function uploadUserImage($image) {
   $valid_mime = ['image/jpeg', 'image/png', 'image/webp'];
+  $img_mime = $image['type'];
+
+  // Check if the MIME type is not valid
+  if (!in_array($img_mime, $valid_mime)) {
+      return 'inv_img'; // Invalid image MIME or format
+  }
+
+  // Check if the file size exceeds 3MB
+  else if ($image['size'] / (1024 * 1024) > 3) {
+      return 'inv_size'; // Invalid image size
+  } else {
+      // Generate a unique name for the image file
+      $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+      $rname = 'IMG_' . random_int(11111, 99999) . ".$ext";
+      $img_path = UPLOAD_IMAGE_PATH . USERS_FOLDER . $rname;
+
+      // Move the uploaded file to the specified folder
+      if (move_uploaded_file($image['tmp_name'], $img_path)) {
+          return $rname; // Return the new file name on success
+      } else {
+          return 'upd_failed'; // Upload failed
+      }
+  }
+}
+
 function uploadSVGImage($image, $folder) {
   $valid_mime = ['image/svg+xml'];
 
