@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <?php
+session_start();
 require('admin/inc/essentials.php');
 require('admin/inc/db_config.php');
 
