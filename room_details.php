@@ -87,7 +87,7 @@
                 </div>
                 rating;
                 $fea_q=mysqli_query($con,"SELECT f.name FROM `features` f 
-                  INNER JOIN `room_features` rfea on f.id=rfea.features_id 
+                  INNER JOIN `room_features` rfea on f.id=rfea.features_id
                   WHERE rfea.room_id='$room_data[id]'");
 
                 $features_data="";
@@ -138,9 +138,15 @@
                 </div>
               area;
 
-              echo<<<book
-                <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-1">Book Now</a>
-              book;
+                $book_btn = "";
+
+                if (!$settings_r['shutdown']) {
+                  echo<<<book
+                  <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-1">Book Now</a>
+                book;
+                }
+
+              
             ?> 
           </div>
         </div>

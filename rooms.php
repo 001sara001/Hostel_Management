@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $settings_r['site_title'] ?> - Rooms</title>
+    <title>Rooms</title>
     
     <?php require('inc/links.php')?>
     
@@ -75,7 +75,7 @@
         while($room_data=mysqli_fetch_assoc($room_res)){
           //get features of room
           $fea_q=mysqli_query($con,"SELECT f.name FROM `features` f 
-             INNER JOIN `room_features` rfea on f.id=rfea.features_id 
+             INNER JOIN `room_features` rfea on f.id=rfea.features_id
              WHERE rfea.room_id='$room_data[id]'");
 
            $features_data="";
@@ -86,7 +86,7 @@
            }   
            //get facilities of room
            $fac_q=mysqli_query($con,"SELECT f.name FROM `facilities` f
-              INNER JOIN `room_facilities` rfac on f.id=rfac.facilities 
+              INNER JOIN `room_facilities` rfac on f.id=rfac.facilities
               where rfac.room_id='$room_data[id]'");
 
          $facilities_data="";
@@ -109,6 +109,14 @@
               $room_thumb=ROOMS_IMG_PATH.$thumb_res['image'];
 
            }
+
+           $book_btn="";
+
+            if (!$settings_r['shutdown']){
+              $book_btn ="<a href='#' class='btn btn-sm w-100 text-white custom-bg shadow-none mb-2'>Book Now</a>
+";
+
+            }
 
            //print room card
 
@@ -137,7 +145,7 @@
                 </div>
                 <div class="col-md-2 text-center">
                   <h6 class="mb-4">$room_data[price]tk per month</h6>
-                  <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
+                   $book_btn
                   <a href="room_details.php?id=$room_data[id]" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
                 </div>
             </div>
